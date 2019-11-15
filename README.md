@@ -3,9 +3,9 @@
 ### Greetings intrepid adventurer!!
 
 It's time to get prepared for your journey. We don't expect you to spend
-more than 2 to 4 hours on this. To start we'll require a working ruby
-installation with the bundler gem available. You may need to install
-chromedriver as well.
+more than 4 hours on this. You may not complete all the exercises, and that's ok.
+To start we'll require a working ruby installation with the bundler gem available. 
+You may need to install chromedriver as well.
 
 * `bundle install`
 * `rake db:create db:migrate db:seed`
@@ -21,9 +21,13 @@ States at that particular time.
 
 ### Values
 
+When completing this exercise please keep the following in mind:
+
 * Please reference the challenge in each git commit, eg `[CH-1]`.
-* At each commit, tests should be passing.
+* Each commit should have passing tests and be ready for production.
+* We test new code.
 * It's your house now, we expect you will want to refactor the code and schema.
+* Conversations and questions that lead to clarity are encouraged.
 
 ### Challenge #1
 
@@ -31,7 +35,7 @@ When running `bundle exec rspec`, the test for Populations with the name:
 
 * should accept a year that is after latest known and return the last known population
 
-is far to slow.
+is far too slow.
 
 Please debug and find a way to improve on the situation.
 
