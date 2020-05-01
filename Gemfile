@@ -36,6 +36,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Install rspec for testing
   gem 'rspec-rails', '~> 3.8'
+  gem 'rubyzip', '~> 1.3'
 end
 
 group :development do
