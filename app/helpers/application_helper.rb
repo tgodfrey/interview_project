@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def year
-    @year.html_safe
+    sanitize @year
   end
 
   def population
