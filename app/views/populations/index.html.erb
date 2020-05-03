@@ -3,3 +3,7 @@
   <input name="year" />
   <button type="submit">Submit</button>
 </form>
+
+<% if @year -%>
+  <%= render "results" %>
+<% end -%>

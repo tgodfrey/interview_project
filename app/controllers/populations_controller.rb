@@ -5,5 +5,7 @@ class PopulationsController < ApplicationController
   def show
     @year = params[:year]
     @population = Population.get(@year)
+
+    render "index"
   end
 end
