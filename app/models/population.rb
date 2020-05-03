@@ -1,6 +1,8 @@
 class Population < ApplicationRecord
 
   YEAR_INCREMENT = 10
+  PREDICTED_GROWTH_RATE = 0.09
+  MAX_PREDICTION_YEAR = 2500
 
   def self.min_year
     Population.order(year: :asc).first.year.year
@@ -15,7 +17,15 @@ class Population < ApplicationRecord
 
     return 0 if year < min_year
 
-    return Population.find_by_year(Date.new(max_year)).population if year > max_year
+    # return Population.find_by_year(Date.new(max_year)).population if year > max_year
+
+    if year > max_year
+      year = MAX_PREDICTION_YEAR if year > MAX_PREDICTION_YEAR
+      max_population = Population.find_by_year(Date.new(max_year)).population
+      num_years = year - max_year
+      return (max_population * Math.exp(PREDICTED_GROWTH_RATE * num_years)).round
+    end
+
 
     pop = nil
     year_last_digit = year % YEAR_INCREMENT

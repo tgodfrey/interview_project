@@ -24,10 +24,18 @@ RSpec.describe Population, type: :model do
     end
   end
 
-  it "should accept a year that is after latest known and return the last known population" do
+  it "should accept a year that is after latest known and return a predictive result" do
     aggregate_failures do
-      expect(Population.get(2000)).to eq(248_709_873)
-      expect(Population.get(200000)).to eq(248_709_873)
+      expect(Population.get(2000)).to eq(611_727_577)
+      expect(Population.get(2045)).to eq(35_111_607_348)
+    end
+  end
+
+  it "should return the value for year Population::MAX_PREDICTION_YEAR for larger years" do
+    aggregate_failures do
+      expect(Population.get(Population::MAX_PREDICTION_YEAR)).to eq(21_370_257_002_448_594_707_431_817_216)
+      expect(Population.get(Population::MAX_PREDICTION_YEAR + 1)).to eq(21_370_257_002_448_594_707_431_817_216)
+
     end
   end
 
